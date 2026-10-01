@@ -1,26 +1,557 @@
-@import "tailwindcss";
+/* =========================================================
+   PREMIUM RESEARCH CERTIFICATE
+   ========================================================= */
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+.research-certificate {
+  width: 100%;
+  padding: 50px 20px;
+  display: flex;
+  justify-content: center;
+  background: #f5f7f8;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.certificate-inner {
+  position: relative;
+  width: min(1100px, 100%);
+  min-height: 680px;
+  padding: 48px 70px 42px;
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ffffff 0%,
+      #fafbfc 45%,
+      #f3f5f6 100%
+    );
+
+  border: 1px solid #31485b;
+
+  box-shadow:
+    0 24px 60px rgba(30, 45, 60, 0.16),
+    0 4px 14px rgba(30, 45, 60, 0.08),
+    inset 0 0 35px rgba(255, 255, 255, 0.95);
+
+  color: #172b3f;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Inner premium frame */
+.certificate-inner::before {
+  content: "";
+  position: absolute;
+  inset: 13px;
+
+  border: 1px solid rgba(49, 72, 91, 0.55);
+
+  pointer-events: none;
+}
+
+/* =========================================================
+   CORNER DECORATION
+   ========================================================= */
+
+.certificate-inner::after {
+  content: "";
+  position: absolute;
+  top: 13px;
+  left: 50%;
+  width: 185px;
+  height: 16px;
+  transform: translateX(-50%);
+
+  background: #ffffff;
+
+  border-left: 1px solid #31485b;
+  border-right: 1px solid #31485b;
+
+  clip-path: polygon(
+    0 0,
+    12% 100%,
+    88% 100%,
+    100% 0
+  );
+
+  pointer-events: none;
+}
+
+/* =========================================================
+   TOP BRAND
+   ========================================================= */
+
+.certificate-brand {
+  position: relative;
+  z-index: 2;
+
+  margin-top: 5px;
+
+  text-align: center;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: clamp(30px, 4vw, 48px);
+
+  font-weight: 800;
+
+  letter-spacing: 2.5px;
+
+  color: #173653;
+}
+
+.certificate-brand::after {
+  content: "";
+
+  display: block;
+
+  width: 105px;
+  height: 2px;
+
+  margin: 12px auto 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      #35aeb9,
+      #a27628,
+      #35aeb9
+    );
+
+  opacity: 0.8;
+}
+
+/* =========================================================
+   CERTIFICATE TITLE
+   ========================================================= */
+
+.certificate-title {
+  position: relative;
+  z-index: 2;
+
+  margin-top: 30px;
+
+  text-align: center;
+
+  white-space: nowrap;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: clamp(20px, 3vw, 33px);
+
+  font-weight: 600;
+
+  letter-spacing: 1px;
+
+  color: #9b7129;
+}
+
+/* =========================================================
+   PRESENTED TO
+   ========================================================= */
+
+.certificate-presented {
+  position: relative;
+  z-index: 2;
+
+  margin-top: 42px;
+
+  text-align: center;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 19px;
+
+  color: #263746;
+}
+
+/* =========================================================
+   PARTICIPANT NAME
+   ========================================================= */
+
+.certificate-name {
+  position: relative;
+  z-index: 2;
+
+  margin-top: 12px;
+
+  text-align: center;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: clamp(30px, 4vw, 43px);
+
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+
+  color: #a27628;
+}
+
+/* =========================================================
+   NAME LINE
+   ========================================================= */
+
+.certificate-dots {
+  position: relative;
+  z-index: 2;
+
+  width: 260px;
+
+  margin: 7px auto 0;
+
+  height: 9px;
+
+  border-bottom: 2px dotted #35aeb9;
+
+  font-size: 0;
+}
+
+/* =========================================================
+   DESCRIPTION
+   ========================================================= */
+
+.certificate-description {
+  position: relative;
+  z-index: 2;
+
+  margin-top: 30px;
+
+  text-align: center;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 17px;
+
+  color: #17232e;
+}
+
+/* =========================================================
+   RESEARCH KEYWORDS
+   ========================================================= */
+
+.certificate-keywords {
+  position: relative;
+  z-index: 2;
+
+  margin-top: 22px;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  flex-wrap: wrap;
+
+  gap: 6px;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.2px;
+
+  color: #24394d;
+}
+
+.keyword-separator {
+  margin: 0 5px;
+
+  color: #a27628;
+
+  font-weight: 700;
+}
+
+/* =========================================================
+   BOTTOM INFORMATION
+   ========================================================= */
+
+.certificate-bottom {
+  position: absolute !important;
+
+  left: 70px;
+  right: 70px;
+  bottom: 42px;
+
+  display: flex;
+
+  align-items: flex-end;
+
+  justify-content: space-between;
+
+  z-index: 3;
+}
+
+.certificate-meta {
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  color: #172b3f;
+}
+
+.presented-by {
+  font-size: 16px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.2px;
+}
+
+.lab-name {
+  margin-top: 7px;
+
+  font-size: 14px;
+
+  color: #405263;
+}
+
+.session-id {
+  margin-top: 26px;
+
+  font-family:
+    "Courier New",
+    monospace;
+
+  font-size: 13px;
+
+  letter-spacing: 0.5px;
+
+  color: #5a6874;
+}
+
+/* =========================================================
+   AI RESEARCH LAB SEAL
+   ========================================================= */
+
+.certificate-seal {
+  width: 150px;
+  height: 70px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff,
+      #f4f7f8
+    );
+
+  border: 1px solid rgba(20, 150, 170, 0.45);
+
+  border-radius: 12px;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.9),
+    0 6px 18px rgba(20, 70, 80, 0.08);
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+/* Teal inner accent */
+.certificate-seal::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 4px;
+
+  border: 1px solid rgba(53, 174, 185, 0.22);
+
+  border-radius: 9px;
+
+  pointer-events: none;
+}
+
+/* Gold corner accent */
+.certificate-seal::after {
+  content: "";
+
+  position: absolute;
+
+  width: 22px;
+  height: 22px;
+
+  top: -1px;
+  right: -1px;
+
+  border-top: 2px solid #a27628;
+  border-right: 2px solid #a27628;
+
+  border-radius: 0 10px 0 0;
+
+  pointer-events: none;
+}
+
+.certificate-seal-icon {
+  position: relative;
+  z-index: 2;
+
+  font-size: 14px;
+
+  line-height: 1;
+
+  margin-bottom: 4px;
+
+  color: #b38b35;
+}
+
+.certificate-seal-title {
+  position: relative;
+  z-index: 2;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.14em;
+
+  color: #26363b;
+
+  white-space: nowrap;
+}
+
+.certificate-seal-subtitle {
+  position: relative;
+  z-index: 2;
+
+  margin-top: 3px;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 7px;
+
+  letter-spacing: 0.12em;
+
+  color: #6b858b;
+
+  white-space: nowrap;
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 800px) {
+  .research-certificate {
+    padding: 25px 10px;
+  }
+
+  .certificate-inner {
+    min-height: 720px;
+
+    padding: 38px 30px;
+  }
+
+  .certificate-title {
+    white-space: normal;
+
+    line-height: 1.15;
+  }
+
+  .certificate-bottom {
+    left: 30px;
+    right: 30px;
+    bottom: 30px;
+  }
+
+  .certificate-seal {
+    width: 105px;
+    height: 60px;
+  }
+
+  .certificate-seal-title {
+    font-size: 8px;
+  }
+
+  .certificate-seal-subtitle {
+    font-size: 5px;
+  }
+
+  .certificate-seal-icon {
+    font-size: 12px;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@media (max-width: 560px) {
+  .certificate-inner {
+    min-height: 760px;
+
+    padding: 32px 22px;
+  }
+
+  .certificate-brand {
+    font-size: 27px;
+  }
+
+  .certificate-bottom {
+    left: 22px;
+    right: 22px;
+    bottom: 25px;
+  }
+
+  .presented-by {
+    font-size: 13px;
+  }
+
+  .lab-name,
+  .session-id {
+    font-size: 11px;
+  }
+
+  .certificate-seal {
+    width: 88px;
+    height: 55px;
+  }
+
+  .certificate-seal-title {
+    font-size: 7px;
+
+    letter-spacing: 0.08em;
+  }
+
+  .certificate-seal-subtitle {
+    font-size: 4.5px;
+
+    letter-spacing: 0.06em;
+  }
+
+  .certificate-seal-icon {
+    font-size: 10px;
+
+    margin-bottom: 2px;
+  }
 }
